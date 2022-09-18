@@ -1,0 +1,19 @@
+.page-text{
+
+font-family: 'Barlow';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
+
+/* text-align: center; */
+
+/* ins black */
+
+color: #22232D;
+}
+.pageView{
+    padding:1rem;
+    text-align: left;
+}
