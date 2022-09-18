@@ -10,15 +10,16 @@ import card_img from "../../assets/images/card.png";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./style.css";
 import { useEffect } from "react";
-import fetchToppool from "../../middleware/fetchToppool"; 
-
+import fetchToppool from "../../middleware/fetchToppool";
 
 const Home = () => {
-
-  useEffect(()=>{
-   fetchToppool();
-
-  },[])
+  const temp = async () => {
+    const data = await fetchToppool();
+    console.log(data, "ffffff");
+  };
+  useEffect(() => {
+    temp();
+  }, []);
 
   return (
     <div>
@@ -81,10 +82,18 @@ const Home = () => {
                   </div>
 
                   {/* <button type="button" className="carousel-btn"> */}
-                  <NavLink className="btn cho" to="/request_fund" activeclassname="active">
+                  <NavLink
+                    className="btn cho"
+                    to="/request_fund"
+                    activeclassname="active"
+                  >
                     Request Fund
                   </NavLink>
-                  <NavLink className="btn cho" to="/poolPage" activeclassname="active">
+                  <NavLink
+                    className="btn cho"
+                    to="/poolPage"
+                    activeclassname="active"
+                  >
                     Donate
                   </NavLink>
                   {/* </button> */}
