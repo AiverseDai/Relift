@@ -1,7 +1,7 @@
 import { ethers } from "ethers";
 import abi from "../middleware/abi.json";
 
-async function fetchToppool() {
+async function fetchAll() {
   if (typeof window.ethereum !== "undefined") {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     console.log({ provider }, "hgdsbkjcnakj,");
@@ -13,11 +13,11 @@ async function fetchToppool() {
       provider
     );
     //   signer
-    const data = await Contract.fetch();
+    const data = await Contract.getPools();
     console.log(data, "fetch to pool");
     console.log("///////////////////");
     return data;
   }
 }
 
-export default fetchToppool;
+export default fetchAll;

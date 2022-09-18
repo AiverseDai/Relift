@@ -11,14 +11,21 @@ import { NavLink, useNavigate } from "react-router-dom";
 import "./style.css";
 import { useEffect } from "react";
 import fetchToppool from "../../middleware/fetchToppool";
+import { useState } from "react";
 
 const Home = () => {
+
+
+  const [poolData, setpoolData] = useState([]);
+
   const temp = async () => {
     const data = await fetchToppool();
     console.log(data, "ffffff");
+    setpoolData(data);
   };
   useEffect(() => {
     temp();
+    console.log(poolData.length,"we did it!");
   }, []);
 
   return (
@@ -130,10 +137,9 @@ const Home = () => {
         </p>
         <div className="p-4" style={{ width: "80%", margin: "0 auto" }}>
           <Row>
-            {[1, 2, 3].map(() => (
+            {poolData.length && poolData.map((element) => (
               <Col style={{ padding: "3rem" }} sm={4}>
-                <Cards img={card_img} />
-                <button>hello jio</button>
+                <Cards element={element} img={card_img} />
               </Col>
             ))}
           </Row>
