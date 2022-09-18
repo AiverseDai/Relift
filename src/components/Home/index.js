@@ -7,9 +7,19 @@ import Cards from "../Cards";
 import SmallCards from "../Cards/SmallCards";
 import Footer from "../Footer";
 import card_img from "../../assets/images/card.png";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./style.css";
+import { useEffect } from "react";
+import fetchToppool from "../../middleware/fetchToppool"; 
+
 
 const Home = () => {
+
+  useEffect(()=>{
+   fetchToppool();
+
+  },[])
+
   return (
     <div>
       <div className="carousel">
@@ -70,9 +80,14 @@ const Home = () => {
                     </p>
                   </div>
 
-                  <button type="button" className="carousel-btn">
-                    Start a Fundraiser
-                  </button>
+                  {/* <button type="button" className="carousel-btn"> */}
+                  <NavLink className="btn cho" to="/request_fund" activeclassname="active">
+                    Request Fund
+                  </NavLink>
+                  <NavLink className="btn cho" to="/poolPage" activeclassname="active">
+                    Donate
+                  </NavLink>
+                  {/* </button> */}
                   <div style={{ display: "flex", justifyContent: "flex-end" }}>
                     <div
                       style={{
@@ -100,7 +115,7 @@ const Home = () => {
       </div>
 
       <div className="main-container">
-        <h1 className="mainTitle">Trending Fundraisers</h1>
+        <h1 className="mainTitle">Latest 3 Fundraiser</h1>
         <p className="fundDesc">
           Here are some fundraisers for active calamities
         </p>
@@ -109,6 +124,7 @@ const Home = () => {
             {[1, 2, 3].map(() => (
               <Col style={{ padding: "3rem" }} sm={4}>
                 <Cards img={card_img} />
+                <button>hello jio</button>
               </Col>
             ))}
           </Row>

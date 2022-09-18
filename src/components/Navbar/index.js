@@ -5,7 +5,7 @@ import Icon from "../../assets/images/icon.png";
 import { AiOutlineBell, AiFillBell } from "react-icons/ai";
 import "./navbar.css";
 import { NavLink, useNavigate } from "react-router-dom";
-
+import connect from "../../middleware/connect";
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const Navbar = () => {
         <p onClick={() => navigate("/")}>Disaster Management</p>
       </div>
       <div className="nav">
-        <NavLink className="btn" to="#" activeClassName="selected">
+        <NavLink onClick={connect} className="btn" id="show" to="#" activeClassName="selected">
           Connect wallet
         </NavLink>
         <NavLink className="btn" to="/poolPage" activeClassName="selected">

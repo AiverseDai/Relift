@@ -1,3 +1,5 @@
+
+
 .container{
 }
 .carousel{
@@ -125,8 +127,11 @@ font-style: normal;
 font-weight: 500;
 font-size: 30px;
 /* identical to box height */
-
 text-align: justify;
-
 color: #FFFFFF;
 }
+
+
+.cho{
+       background-color: rgb(109, 89, 63);
+    }
