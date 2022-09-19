@@ -5,7 +5,12 @@ import "react-best-tabs/dist/index.css";
 import "./style.css";
 import Donation from "../common/Donation";
 
+let text = window.ethereum.selectedAddress;
+let y = text.slice(0, 20);
+let x = y + "....";
+
 const Profile = () => {
+
   const [key, setKey] = useState(1);
   return (
     <div>
@@ -65,7 +70,7 @@ const Profile = () => {
               }}
             >
               <Image
-                src="https://images.pexels.com/photos/735423/pexels-photo-735423.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                src="https://cf.ltkcdn.net/family/images/orig/283268-2120x1414-women-on-wheel-chair-holding-mens-hand.jpg"
                 alt="profile"
                 fluid
                 roundedCircle
@@ -86,9 +91,9 @@ const Profile = () => {
                   color: "#073695",
                 }}
               >
-                Minakshee Bari
+                {x}
               </p>
-              <p className="profile_text">Social Worker</p>
+              <p className="profile_text">Thanyou for being on this platform</p>
             </div>
           </div>
         </div>
