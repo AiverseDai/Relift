@@ -1,7 +1,7 @@
 import { ethers } from "ethers";
 import abi from "../middleware/abi.json";
 
-async function donate(id) {
+async function donate(id, amount) {
   if (typeof window.ethereum !== "undefined") {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     console.log({ provider }, "hgdsbkjcnakj,");
@@ -10,10 +10,10 @@ async function donate(id) {
     const Contract = new ethers.Contract(
       "0x498B1A27089572389aF6225FBC85C2c4aaA33E3f",
       abi,
-      provider
+      signer
     );
     //   signer
-    const data = await Contract.donate(id-1);
+    const data = await Contract.donate(id, { value: (amount * 10) ^ 18 });
     console.log(data, "fetch to pool");
     console.log("///////////////////");
     return data;

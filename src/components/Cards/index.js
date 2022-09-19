@@ -6,20 +6,18 @@ import verify from "../../assets/images/verify.png";
 import "./style.css";
 import donate from "../../middleware/donate";
 import BigDonate from "../../middleware/bigdonate";
-import {useState} from "react";
+import { useState } from "react";
 
-
-const Cards = ({ img,element }) => {
-
-const [fullscreen, setFullscreen] = useState(true);
-const [show, setShow] = useState(false);
+const Cards = ({ img, element }) => {
+  const [fullscreen, setFullscreen] = useState(true);
+  const [show, setShow] = useState(false);
 
   function handleShow(breakpoint) {
     setFullscreen(breakpoint);
     setShow(true);
   }
 
-  console.log(element,"this is element")
+  console.log(element, "this is element");
   const location = useLocation();
   const backgroundStyle = {
     backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0) 9.27%, #000000 100%), 
@@ -84,18 +82,25 @@ url(${element && element[7]})`,
         {/* </Card> */}
       </div>
       {/* {location.pathname === "/" && ( */}
-        <div className="donateBtn_box">
-          <button onClick={()=>{
+      <div className="donateBtn_box">
+        <button
+          onClick={() => {
             setShow(true);
-          }} type="button" className="donate_btn">
-            Donate
-          </button>
-      
-        </div>
+          }}
+          type="button"
+          className="donate_btn"
+        >
+          Donate
+        </button>
+      </div>
       {/* )} */}
-      <BigDonate show={show} setShow={setShow} handleShow = {handleShow} />
+      <BigDonate
+        element={element}
+        show={show}
+        setShow={setShow}
+        handleShow={handleShow}
+      />
     </div>
-    
   );
 };
 

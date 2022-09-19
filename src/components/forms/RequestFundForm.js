@@ -1,16 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 import { FaRegUserCircle } from "react-icons/fa";
-import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
+import {
+  AiOutlineMail,
+  AiOutlineDropbox,
+  AiOutlineDollar,
+  AiFillDropboxCircle,
+} from "react-icons/ai";
 import { GoLocation } from "react-icons/go";
 import SubmitDoc from "../SubmitDoc/index";
-
+import { BsImages } from "react-icons/bs";
 const RequestFundForm = ({ handleSubmit, submitForm }) => {
   const [resetImage, setResetImage] = React.useState(false);
   const [imageData, setImageData] = React.useState();
+  const [input, setInput] = useState({});
 
   const imagHandler = (img) => {
     setImageData(img);
+  };
+  const handleChange = (e) => {
+    setInput({ ...input, [e.target.name]: e.target.value });
+  };
+  const submitHandler = () => {
+    handleSubmit(input);
+    console.log(input, "values");
   };
   return (
     <div>
@@ -20,6 +33,7 @@ const RequestFundForm = ({ handleSubmit, submitForm }) => {
             <input
               type="text"
               name="name"
+              onChange={handleChange}
               placeholder="Enter Full Name"
               className="fund_input"
             />
@@ -29,33 +43,48 @@ const RequestFundForm = ({ handleSubmit, submitForm }) => {
             <input
               type="text"
               name="poolName"
+              onChange={handleChange}
               placeholder="Pool Name"
               className="fund_input"
             />
-            <AiOutlineMail style={{ fontSize: "2rem" }} />
+            <AiOutlineDropbox style={{ fontSize: "2rem" }} />
           </div>
           <div className="fund_input_wrapper">
             <input
               type="text"
-              name="phone"
-              placeholder="Mobile Number"
+              name="size"
+              onChange={handleChange}
+              placeholder="Request Amount"
               className="fund_input"
             />
-            <AiOutlinePhone style={{ fontSize: "2rem" }} />
+            <AiOutlineDollar style={{ fontSize: "2rem" }} />
           </div>
           <div className="fund_input_wrapper">
             <input
               type="text"
               name="address"
+              onChange={handleChange}
               placeholder="Address"
               className="fund_input"
             />
             <GoLocation style={{ fontSize: "2rem" }} />
           </div>
+          <div className="fund_input_wrapper">
+            <input
+              type="text"
+              name="image"
+              onChange={handleChange}
+              placeholder="Image Link"
+              className="fund_input"
+            />
+            <BsImages style={{ fontSize: "2rem" }} />
+          </div>
+
           <div className="fund_textare_wrapper">
             <textarea
               className="fund_textarea"
               maxLength="5000"
+              onChange={handleChange}
               placeholder="Describe in detail about your purpose"
               rows={5}
               style={{ width: "100%" }}
@@ -63,7 +92,7 @@ const RequestFundForm = ({ handleSubmit, submitForm }) => {
           </div>
           <p style={{ textAlign: "right", fontSize: "12px" }}>0/5000</p>
           <div>
-            <button className="fund_btn" onClick={handleSubmit}>
+            <button className="fund_btn" onClick={submitHandler}>
               Next
             </button>
           </div>

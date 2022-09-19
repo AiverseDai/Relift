@@ -10,8 +10,7 @@ let y = text.slice(0, 20);
 let x = y + "....";
 
 const Profile = () => {
-
-  const [key,setKey] = useState(1);
+  const [key, setKey] = useState(1);
   return (
     <div>
       <div
@@ -104,9 +103,29 @@ const Profile = () => {
             margin: "0",
           }}
         >
-          {[1, 2, 3, 4, 5].map(() => (
-            <Donation />
-          ))}
+          {key === 1 ? (
+            [1, 2, 3, 4, 5].map(() => <Donation />)
+          ) : (
+            <div>
+              <Donation />
+
+              <div style={{ textAlign: "center", marginTop: "1rem" }}>
+                <button
+                  type="button"
+                  style={{
+                    padding: "1rem 4rem",
+                    border: "none",
+                    outline: "none",
+                    background: "blue",
+                    color: "white",
+                    borderRadius: "10px",
+                  }}
+                >
+                  Withdraw
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -12,8 +12,9 @@ const DisasterPage = () => {
   const handleOpen = (name) => {
     setSubmit(true);
   };
-  const handleSubmit = (name) => {
-    setSubmitForm(true);
+  const handleSubmit = (val) => {
+    // setSubmitForm(true);
+    console.log(val, "valiues in form");
   };
   return (
     <div>
