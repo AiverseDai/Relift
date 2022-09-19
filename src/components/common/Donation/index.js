@@ -1,5 +1,5 @@
 import React from "react";
-import React_img from "../../../assets/images/Rectangle40.png";
+import React_img from "../../../assets/images/helpimage.jpg";
 import ellipse_img from "../../../assets/images/Ellipse 5.png";
 import "./style.css";
 

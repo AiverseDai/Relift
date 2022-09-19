@@ -11,7 +11,7 @@ let x = y + "....";
 
 const Profile = () => {
 
-  const [key, setKey] = useState(1);
+  const [key,setKey] = useState(1);
   return (
     <div>
       <div

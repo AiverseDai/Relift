@@ -8,7 +8,7 @@ async function donate(id) {
     // console.log(process.env.REACT_APP_TEST_USDCTOKEN);
     const signer = provider.getSigner();
     const Contract = new ethers.Contract(
-      "0xb1A043e7CB9cdd1114e4F07EA9BF2Ae87643Cb89",
+      "0x498B1A27089572389aF6225FBC85C2c4aaA33E3f",
       abi,
       provider
     );
