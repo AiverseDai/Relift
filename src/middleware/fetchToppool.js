@@ -8,7 +8,7 @@ async function fetchToppool() {
     // console.log(process.env.REACT_APP_TEST_USDCTOKEN);
     const signer = provider.getSigner();
     const Contract = new ethers.Contract(
-      "0x498B1A27089572389aF6225FBC85C2c4aaA33E3f",
+      "0xb96531bf3a6b8F99b989e961d0C3470b6d9A7f91",
       abi,
       provider
     );

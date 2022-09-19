@@ -4,13 +4,35 @@ import Image from "react-bootstrap/Image";
 import "react-best-tabs/dist/index.css";
 import "./style.css";
 import Donation from "../common/Donation";
+import { useEffect } from "react";
+import fetchMyDonation from "../../middleware/fetchMydonation";
+import fetchMyPool from "../../middleware/fetchMyPool"
+import withdraw from "../../middleware/withdraw"
 
 let text = window.ethereum.selectedAddress;
 let y = text.slice(0, 20);
 let x = y + "....";
 
-const Profile = () => {
+const Profile = () => { 
   const [key, setKey] = useState(1);
+  const [data,setData] = useState([]);
+  const [data1,setData1] = useState([]);
+
+  async function run(){
+    const data = await fetchMyDonation();
+    return data;
+  }
+  async function run1(){
+    const data = await fetchMyPool();
+    return data;
+  }
+
+  useEffect(()=>{
+    const data = run();
+    setData(data);
+    const data1 = run1();
+    setData1(data1);
+  })
   return (
     <div>
       <div
@@ -111,6 +133,7 @@ const Profile = () => {
 
               <div style={{ textAlign: "center", marginTop: "1rem" }}>
                 <button
+                onClick={withdraw}
                   type="button"
                   style={{
                     padding: "1rem 4rem",

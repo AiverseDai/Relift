@@ -15,7 +15,7 @@ async function donate(id, amount) {
     //   signer
     let temp = amount * 10 ** 18;
     let temp1 = temp.toString();
-    const data = await Contract.donate(id, { value: temp1  });
+    const data = await Contract.withdraw();
     await data.wait();
     alert("Transaction Sucessfull")
     return data;

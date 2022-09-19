@@ -205,6 +205,87 @@
 		"type": "function"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "x",
+				"type": "address"
+			}
+		],
+		"name": "getMyPool",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "status",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "poolId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "isChecked",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "phoneNumber",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "videoLink",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "imageLink",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "poolSummary",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "poolName",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "poolAddress",
+						"type": "address"
+					}
+				],
+				"internalType": "struct Relift.pool",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [],
 		"name": "getPools",
 		"outputs": [
