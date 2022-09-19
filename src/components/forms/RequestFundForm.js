@@ -10,6 +10,7 @@ import {
 import { GoLocation } from "react-icons/go";
 import SubmitDoc from "../SubmitDoc/index";
 import { BsImages } from "react-icons/bs";
+import store from "../../middleware/store";
 const RequestFundForm = ({ handleSubmit, submitForm }) => {
   const [resetImage, setResetImage] = React.useState(false);
   const [imageData, setImageData] = React.useState();
@@ -21,8 +22,18 @@ const RequestFundForm = ({ handleSubmit, submitForm }) => {
   const handleChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
-  const submitHandler = () => {
-    handleSubmit(input);
+  const submitHandler = async () => {
+    // handleSubmit(input);
+    //amount,imageLink,videoLink,name,phone,summary,poolName
+    console.log(input,"⚡⚡⚡");
+    if(input?.size && input?.image && input?.name && input?.address && input?.poolName){
+      await store(input?.size,input?.image,"video link",input?.name,"phone",input?.address,input?.poolName);
+      alert(
+        "form is submited"
+      );
+      return ;
+    }
+    alert("all field are required")
     console.log(input, "values");
   };
   return (

@@ -3,7 +3,8 @@ import React_img from "../../../assets/images/helpimage.jpg";
 import ellipse_img from "../../../assets/images/Ellipse 5.png";
 import "./style.css";
 
-const Donation = () => {
+const Donation = ({requestArray}) => {
+  console.log(requestArray,"🚀🚀🚀");
   return (
     <div
       style={{
@@ -24,7 +25,7 @@ const Donation = () => {
           }}
         />
         <div style={{ padding: "0 1rem" }}>
-          <p className="donation_title">Bengaluru Floods</p>
+          <p className="donation_title">{requestArray && requestArray[9]}</p>
           <p className="donation_info">
             Donated from{" "}
             <img
@@ -55,9 +56,9 @@ const Donation = () => {
             fontSize: "36px",
             textAlign: "center",
             color: "#22232D",
-          }}
-        >
-          Rs. 6,500
+          }}>
+   
+         {requestArray && parseInt(requestArray[0]?._hex, 16)}
         </p>
         <p className="donation_info">12 September 2022</p>
       </div>

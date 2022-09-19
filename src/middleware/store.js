@@ -2,7 +2,8 @@ import {ethers} from 'ethers';
 import abi from '../middleware/abi.json';
 
 
-async function store(){
+async function store(amount,imageLink,videoLink,name,phone,summary,poolName){
+    console.log(amount,imageLink,videoLink,name,phone,summary,poolName,"👨‍💻👨‍💻👨‍💻")
 
     if (typeof window.ethereum !== "undefined") {
 		const provider = new ethers.providers.Web3Provider(window.ethereum);

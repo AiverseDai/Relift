@@ -10,29 +10,33 @@ import fetchMyPool from "../../middleware/fetchMyPool"
 import withdraw from "../../middleware/withdraw"
 
 let text = window.ethereum.selectedAddress;
-let y = text.slice(0, 20);
+let y = text && text.slice(0, 20);
 let x = y + "....";
 
 const Profile = () => { 
   const [key, setKey] = useState(1);
-  const [data,setData] = useState([]);
-  const [data1,setData1] = useState([]);
+  const [donationArray,setdonationArray] = useState([]);
+  const [requestArray,setrequestArray] = useState([]);
 
   async function run(){
     const data = await fetchMyDonation();
-    return data;
+    setdonationArray(data);
+    // return data;
   }
   async function run1(){
     const data = await fetchMyPool();
-    return data;
+    setrequestArray(data);
+    // console.log(data,"😍😍😍")
+    // return data;
   }
-
+  
   useEffect(()=>{
-    const data = run();
-    setData(data);
-    const data1 = run1();
-    setData1(data1);
+    run();
+    // setdonationArray(donationdata);
+    run1();
+    // setrequestArray(pooldata);
   })
+  // requestArray.then(v=>console.log(v))
   return (
     <div>
       <div
@@ -129,8 +133,7 @@ const Profile = () => {
             [1, 2, 3, 4, 5].map(() => <Donation />)
           ) : (
             <div>
-              <Donation />
-
+              <Donation requestArray={requestArray}/>
               <div style={{ textAlign: "center", marginTop: "1rem" }}>
                 <button
                 onClick={withdraw}
